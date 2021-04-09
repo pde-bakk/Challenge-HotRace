@@ -30,7 +30,7 @@ $(NAME): libft.a getnextline.a $(OBJS)
 	$(CXX) $(CXXFLAGS) $(INCLUDE) $(SRCS) libft/libft.a getnextline/getnextline.a -o $@
 
 %.a: %
-	@$(MAKE) -sC $^
+	@$(MAKE) -C $^
 
 %.o: %.cpp
 	@$(CXX) -c $(CXXFLAGS) $(INCLUDE) $^ -o $@
