@@ -36,7 +36,7 @@ $(NAME): getnextline.a $(OBJS)
 	$(CXX) -c $(CXXFLAGS) $(INCLUDE) $^ -o $@
 
 clean:
-	$(RM) -f $(OBJS)
+	$(RM) $(OBJS)
 	$(MAKE) clean -sC getnextline
 
 fclean: clean
