@@ -1,6 +1,6 @@
 NAME = hotrace
 
-SHELL := /bin/zsh
+SHELL := /bin/bash
 
 # COLORS
 PINK = \x1b[35;01m
