@@ -5,6 +5,7 @@
 #ifndef CHALLENGE_HOTRACE_STRING_HPP
 #define CHALLENGE_HOTRACE_STRING_HPP
 #include <cstdio>
+#include <stdlib.h>
 #include <string.h>
 
 namespace ft {
