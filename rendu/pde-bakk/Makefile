@@ -12,7 +12,7 @@ WHITE = \x1b[31;37m
 RESET = \x1b[0m
 
 CXXFLAGS = -W -Wall -Werror -Wextra -pedantic -std=c++98
-INCLUDE = -Iincludes -Ift_containers -Igetnextline/include -Ilibft/include
+INCLUDE = -Iincludes -Ift_containers -Igetnextline/include
 
 ifdef DEBUG
  CXXFLAGS += -g -fsanitize=address
@@ -25,25 +25,23 @@ OBJS = $(SRCS:.cpp=.o)
 
 all: $(NAME)
 
-$(NAME): libft.a getnextline.a $(OBJS)
+$(NAME): getnextline.a $(OBJS)
 	@echo -e "$(BLUE) @ is " $^ "$(RESET)"
-	$(CXX) $(CXXFLAGS) $(INCLUDE) $(SRCS) libft/libft.a getnextline/getnextline.a -o $@
+	$(CXX) $(CXXFLAGS) $(INCLUDE) $(SRCS) getnextline/getnextline.a -o $@
 
 %.a: %
-	@$(MAKE) -C $^
+	$(MAKE) -C $^
 
 %.o: %.cpp
-	@$(CXX) -c $(CXXFLAGS) $(INCLUDE) $^ -o $@
+	$(CXX) -c $(CXXFLAGS) $(INCLUDE) $^ -o $@
 
 clean:
-	@$(RM) -f $(OBJS)
-	@$(MAKE) clean -sC libft
-	@$(MAKE) clean -sC getnextline
+	$(RM) -f $(OBJS)
+	$(MAKE) clean -sC getnextline
 
 fclean: clean
-	@$(RM) $(NAME)
-	@$(MAKE) fclean -sC libft
-	@$(MAKE) fclean -sC getnextline
+	$(RM) $(NAME)
+	$(MAKE) fclean -sC getnextline
 
 re: fclean all
 
@@ -52,6 +50,5 @@ test: $(NAME)
 
 test_time: $(NAME)
 	./test.sh
-
 
 .PHONY: re clean fclean test time

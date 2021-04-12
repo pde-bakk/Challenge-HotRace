@@ -1,7 +1,6 @@
 #include "map/Map.hpp"
 extern "C" {
 	#include "get_next_line.h"
-	#include "libft.h"
 }
 #include <iostream>
 #include <string>
@@ -19,11 +18,8 @@ void	new_entry(char* line, size_t i) {
 	line[i] = '\0';
 	string	key = line,
 			value = line + i + 1;
-//	key.assign(line, i);
-//	value.assign(line + i + 1);
 	line[i] = '=';
 	dict.insert(ft::make_pair(key, value)); // insert over [] so it wont add the new value if the key already existed
-
 }
 
 void	get_entry(char* line) {
